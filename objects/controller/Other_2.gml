@@ -28,61 +28,76 @@ contact_vertices = []; //// Also only for debugging
 
 // Separating axis theorem functions
 function project_shape_onto_axis(axis, obj) {
-	
-	set_ball_vertices_along_axis(obj, axis);
-	
-	var _min = vec_dot(axis, obj.vertex[0]);
-	var _max = _min;
-	var col_vertex = obj.vertex[0];
-	
-	for (var i = 0; i < array_length(obj.vertex); i++) {
-		var p = vec_dot(axis, obj.vertex[i]);
-		if p < _min {
-			_min = p;
-			col_vertex = obj.vertex[i];
-		}
-		if p > _max {
-			_max = p;	
-		}
-	}
-	
-	return {
-		_min: _min,	
-		_max: _max,
-		col_vertex: col_vertex
-	}
+    var vertices = obj.vertex;  // Cache vertices array
+    var len = array_length(vertices);
+
+    set_ball_vertices_along_axis(obj, axis);  // Assume this is optimized as well
+    
+    var col_vertex = vertices[0];  // First vertex
+    var proj = vec_dot(axis, vertices[0]);
+    
+    var _min = proj;
+    var _max = proj;
+    
+    for (var i = 1; i < len; i++) {  // Start loop from 1 as first vertex is already handled
+        proj = vec_dot(axis, vertices[i]);  // Calculate projection once
+
+        if proj < _min {
+            _min = proj;
+            col_vertex = vertices[i];  // Track closest vertex
+        }
+
+        if proj > _max {
+            _max = proj;
+        }
+    }
+    
+    return {
+        _min: _min,
+        _max: _max,
+        col_vertex: col_vertex
+    };
 }
 
 function find_axes(o1, o2) {
-	var axes = [];
-	if o1.object_index == obj_circle && o2.object_index == obj_circle {
-		array_push( axes, vec_normalize(vec_subtract(o2.position, o1.position)) );
-		return axes;
-	}
-	if o1.object_index == obj_circle {
-		array_push(axes, vec_normalize(vec_subtract(closest_vertex_to_point(o2, o1.position), o1.position)));	
-		array_push(axes, vec_normal(o2.dir) );
-		if (o2.object_index == obj_rectangle) {
-			array_push(axes, o2.dir);	
-		}
-		return axes;
-	}
-		
-	if o2.object_index == obj_circle {
-		array_push(axes, vec_normal(o1.dir) );
-		if (o1.object_index == obj_rectangle) {
-			array_push(axes, o1.dir);	
-		}
-		array_push(axes, vec_normalize(vec_subtract(closest_vertex_to_point(o1, o2.position), o2.position)));
-		return axes;
-
-	}
-	
-	array_push(axes, vec_normal(o1.dir) );
-	array_push(axes, o1.dir );
-	array_push(axes, vec_normal(o2.dir) );
-	array_push(axes, o2.dir );
-	return axes;
+    var axes = [];
+    
+    if o1.object_index == obj_circle && o2.object_index == obj_circle {
+        // For two circles, we only need the axis between their centers
+        array_push(axes, vec_normalize(vec_subtract(o2.position, o1.position)));
+        return axes;
+    }
+    
+    if o1.object_index == obj_circle {
+        // Circle vs Polygon (o2)
+        array_push(axes, vec_normalize(vec_subtract(closest_vertex_to_point(o2, o1.position), o1.position)));
+        array_push(axes, vec_normal(o2.dir));  // Polygon edge normal
+        
+        if o2.object_index == obj_rectangle {
+            array_push(axes, o2.dir);  // Add o2's direction as an axis
+        }
+        return axes;
+    }
+    
+    if o2.object_index == obj_circle {
+        // Polygon (o1) vs Circle
+        array_push(axes, vec_normal(o1.dir));  // Polygon edge normal
+        
+        if o1.object_index == obj_rectangle {
+            array_push(axes, o1.dir);  // Add o1's direction as an axis
+        }
+        
+        array_push(axes, vec_normalize(vec_subtract(closest_vertex_to_point(o1, o2.position), o2.position)));
+        return axes;
+    }
+    
+    // Two polygons (or rectangles)
+    array_push(axes, vec_normal(o1.dir));
+    array_push(axes, o1.dir);
+    array_push(axes, vec_normal(o2.dir));
+    array_push(axes, o2.dir);
+    
+    return axes;
 }
 
 function closest_vertex_to_point(obj, p) {

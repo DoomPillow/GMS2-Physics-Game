@@ -38,6 +38,7 @@ for (var i = 0; i < array_length(BODIES); i++) {
 							// Set minimum translation vector
 							mtv = _colliding;
 						}
+						break; // Quit once a collision has been detected 
 					}
 				}
 			}
