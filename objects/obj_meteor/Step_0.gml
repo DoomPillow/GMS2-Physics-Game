@@ -17,3 +17,6 @@ velocity = vec_multiply(velocity, 1 - fric);
 //vertex[1] = vec_sum(vec_sum( position, vec_multiply(dir, -length*0.5)), vec_multiply( vec_normal(dir), -width*0.5));
 //vertex[2] = vec_sum(vec_sum( position, vec_multiply(dir, length*0.5)), vec_multiply( vec_normal(dir), -width*0.5));
 //vertex[3] = vec_sum(vec_sum( position, vec_multiply(dir, length*0.5)), vec_multiply( vec_normal(dir), width*0.5));
+
+
+

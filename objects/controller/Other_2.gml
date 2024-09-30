@@ -17,11 +17,6 @@ global.target_fps = 60;
 global.timescale = 1;
 global.delta = 0;
 
-/// Global variables to store previous state and cached collisions
-cached_collisions = ds_map_create(); // Map to store cached collisions
-prev_positions = ds_map_create();    // Map to store previous positions of objects
-prev_bboxes = ds_map_create();       // Map to store previous bounding boxes
-
 // End init stage
 room_goto_next();
 

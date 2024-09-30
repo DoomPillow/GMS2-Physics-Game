@@ -9,7 +9,8 @@ components = [instance_create_layer(x,y,layer, obj_circle, {radius: radius, colo
 inv_mass = mass == 0 ? 0 : 1 / mass;
 
 reposition = function() {
-	components[0].position = vec_sum(components[0].position, velocity);
+	position = vec_sum(position, velocity)
+	components[0].position = position
 }
 
 bbox = get_bbox();

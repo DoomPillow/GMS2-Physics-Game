@@ -13,7 +13,7 @@ velocity = new vector(vx, vy);
 accel = new vector(0, 0);
 acceleration = 1;
 angular_velocity = 0;
-fric = 0.015;
+fric = 0.00;
 
 get_bbox = function() {
 	

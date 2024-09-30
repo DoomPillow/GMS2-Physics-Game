@@ -8,8 +8,8 @@ function collision_manifold(_o1, _o2, _normal, _pen, _cp) constructor {
 	
 	resolve_penetration = function() {
 		var pen_resolution = vec_multiply(normal, pen / (o1.inv_mass + o2.inv_mass));
-		o1.components[0].position = vec_sum(o1.components[0].position, vec_multiply(pen_resolution, o1.inv_mass) );
-		o2.components[0].position = vec_sum(o2.components[0].position, vec_multiply(pen_resolution, -o2.inv_mass) );	
+		o1.position = vec_sum(o1.position, vec_multiply(pen_resolution, o1.inv_mass) );
+		o2.position = vec_sum(o2.position, vec_multiply(pen_resolution, -o2.inv_mass) );	
 	}
 	
 	resolve_collision = function() {
@@ -17,11 +17,11 @@ function collision_manifold(_o1, _o2, _normal, _pen, _cp) constructor {
 		//var _normal = vec_normalize(vec_subtract(_points[0], _points[1]));
 	
 		// Closing velocity
-		var col_arm1 = vec_subtract(cp, o1.components[0].position);
+		var col_arm1 = vec_subtract(cp, o1.position);
 		var rot_vel1 = new vector(-o1.angular_velocity * col_arm1.y, o1.angular_velocity * col_arm1.x);
 		var clos_vel1 = vec_sum(o1.velocity, rot_vel1);
 	
-		var col_arm2 =vec_subtract(cp, o2.components[0].position);
+		var col_arm2 =vec_subtract(cp, o2.position);
 		var rot_vel2 = new vector(-o2.angular_velocity * col_arm2.y, o2.angular_velocity * col_arm2.x);
 		var clos_vel2 = vec_sum(o2.velocity, rot_vel2);
 	
