@@ -17,6 +17,8 @@ for (var i = 0; i < array_length(BODIES); i++) {
 	}
 }
 
+
+overlapping_bboxes = 0; // Debug only
 // Loop through each physics object...
 for (var i = 0; i < array_length(BODIES); i++) {
 	with BODIES[i] {
@@ -24,11 +26,26 @@ for (var i = 0; i < array_length(BODIES); i++) {
 		// For each physics object, loop through evey other physics object...
 		for (var body_pair = i+1; body_pair < array_length(other.BODIES); body_pair++) {
 			
+			// Root out things that obviously don't collide using the bboxes
+			var _bbox1 = other.BODIES[i].bbox;
+			var _bbox2 = other.BODIES[body_pair].bbox;
+			if !rectangle_in_rectangle(_bbox1[0], _bbox1[1], _bbox1[2], _bbox1[3], _bbox2[0], _bbox2[1], _bbox2[2], _bbox2[3]) {
+				continue	
+			}
+			other.overlapping_bboxes ++; // Debug only
+			
+			// Full SAT check
 			var mtv = {pen: -1, axis: -1, cont: -1};
 			
 			// Loop through all of the components of the second object for every component in the first...
 			for (var o1_comp = 0; o1_comp < array_length(other.BODIES[i].components); o1_comp++) {
 				for (var o2_comp = 0; o2_comp < array_length(other.BODIES[body_pair].components); o2_comp++) {
+					
+					// Perform breadth-distance broad phase
+					if point_distance(other.BODIES[i].components[o1_comp].position.x, other.BODIES[i].components[o1_comp].position.y, other.BODIES[body_pair].components[o2_comp].position.x, other.BODIES[body_pair].components[o2_comp].position.y) > (other.BODIES[i].components[o1_comp].breadth + other.BODIES[body_pair].components[o2_comp].breadth) {
+						continue;	
+					}
+					
 					// Perform the separating axis theorem func to see if they are colliding
 					var _colliding = other.sat(other.BODIES[i].components[o1_comp], other.BODIES[body_pair].components[o2_comp]);
 					if _colliding != false {
@@ -38,7 +55,6 @@ for (var i = 0; i < array_length(BODIES); i++) {
 							// Set minimum translation vector
 							mtv = _colliding;
 						}
-						break; // Quit once a collision has been detected 
 					}
 				}
 			}

@@ -1,0 +1,3 @@
+
+
+bbox = get_bbox();

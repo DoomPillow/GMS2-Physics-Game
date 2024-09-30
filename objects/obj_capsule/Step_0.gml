@@ -1,5 +1,7 @@
 /// @description
 
+event_inherited();
+
 if movy {
 	
 	var _x_input = keyboard_check(ord("D")) - keyboard_check(ord("A"));

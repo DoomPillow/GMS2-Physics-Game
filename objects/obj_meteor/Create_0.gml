@@ -58,3 +58,5 @@ inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 
 angle = 0;
 angular_velocity = 0;
+
+bbox = get_bbox();

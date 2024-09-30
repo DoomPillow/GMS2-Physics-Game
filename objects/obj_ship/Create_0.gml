@@ -3,7 +3,7 @@
 event_inherited();
 
 components = [
-	instance_create_layer(x,y,layer,obj_rectangle, {vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	instance_create_layer(x,y,layer,obj_rectangle, {xoff:0, yoff:0 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
 	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:0 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
 	instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:0 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
 	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:0, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
@@ -16,20 +16,19 @@ components = [
 	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
 	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
 	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32})
 	
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	//
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:-64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:32, yoff:-32, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:-64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+	//instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:-64, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
 ];
 
 following = false;
@@ -56,6 +55,9 @@ reposition = function() {
 inertia = 5 * array_length(components) * mass * (power(components[0].width, 2) + power(components[0].length, 2)) * (1/12);
 inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 
-
 angle = 0;
 angular_velocity = 0;
+
+thrust_speed = 1
+
+bbox = get_bbox();
