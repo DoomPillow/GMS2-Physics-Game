@@ -16,8 +16,8 @@ if relative_angle {
 
 if instance_exists(follow) {
 	
-	camx = lerp(camx, follow.components[0].position.x - (view_width*zoom)/2,  1);
-	camy = lerp(camy, follow.components[0].position.y - (view_height*zoom)/2, 1);
+	camx = lerp(camx, follow.position.x - (view_width*zoom)/2,  1);
+	camy = lerp(camy, follow.position.y - (view_height*zoom)/2, 1);
 	//camx = clamp(camx, 0, room_width - view_width);
 	//camy = clamp(camy, 0, room_height - view_height);
 	
