@@ -24,3 +24,5 @@ get_vertices = function() {
 	vertex[2] = vec_sum(vec_sum( position, vec_multiply(dir, length*0.5)), vec_multiply( vec_normal(dir), -width*0.5));
 	vertex[3] = vec_sum(vec_sum( position, vec_multiply(dir, length*0.5)), vec_multiply( vec_normal(dir), width*0.5));	
 }
+
+breadth = sqrt( power(vertex[1].x - vertex[0].x, 2) + power(vertex[2].y - vertex[0].y, 2)) * 0.5

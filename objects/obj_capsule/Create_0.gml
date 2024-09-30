@@ -32,3 +32,5 @@ reposition = function() {
 	components[1].position = vec_sum( components[0].position, vec_multiply( components[0].dir, -components[0].length * 0.5));
 	components[2].position = vec_sum( components[0].position, vec_multiply( components[0].dir, components[0].length * 0.5));	
 }
+
+bbox = get_bbox();

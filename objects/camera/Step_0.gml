@@ -4,9 +4,9 @@ var view = view_camera[0];
 
 camera_set_view_size(view, (view_width*zoom), (view_height*zoom));
 
-if keyboard_check_pressed(vk_tab) {
-	relative_angle = !relative_angle;	
-}
+//if keyboard_check_pressed(vk_tab) {
+//	relative_angle = !relative_angle;	
+//}
 
 if relative_angle {
 	camera_set_view_angle(view, radtodeg(follow.components[0].angle));

@@ -9,7 +9,7 @@
   "managed":true,
   "name":"obj_meteor",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"50",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"100",},
   ],
   "parent":{
     "name":"complex objects",

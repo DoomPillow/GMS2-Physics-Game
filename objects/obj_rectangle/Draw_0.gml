@@ -11,4 +11,12 @@ draw_set_valign(fa_center);
 draw_text(position.x, position.y, "+");
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
+
+if controller.show_bboxes { 
+	draw_set_alpha(0.25)
+	draw_set_color(c_lime);
+	draw_circle(position.x, position.y, breadth, true)
+	draw_set_alpha(1.0)
+	
+}
 draw_set_color(c_white);

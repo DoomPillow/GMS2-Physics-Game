@@ -1,5 +1,7 @@
 /// @description
 
+event_inherited();
+
 draw_set_color( mass == 0 ? c_aqua : c_yellow);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_center);

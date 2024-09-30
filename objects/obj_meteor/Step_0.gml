@@ -1,5 +1,7 @@
 /// @description
 
+event_inherited();
+
 components[0].angle += angular_velocity;
 angular_velocity *= 0.95;
 
