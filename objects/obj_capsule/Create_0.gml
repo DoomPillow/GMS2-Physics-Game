@@ -26,7 +26,8 @@ inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 angle = 0;
 
 reposition = function() {
-	position = vec_sum(position, velocity);
+	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
+	position = vec_subtract(local_position, global.world_position);
 	
 	components[0].position = position;
 	components[0].angle = angle;

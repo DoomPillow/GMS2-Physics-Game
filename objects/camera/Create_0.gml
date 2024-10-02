@@ -16,4 +16,4 @@ camy = 0;
 
 relative_angle = false;
 
-follow = obj_ship;
+follow = noone;

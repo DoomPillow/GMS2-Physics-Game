@@ -8,13 +8,13 @@ camera_set_view_size(view, (view_width*zoom), (view_height*zoom));
 //	relative_angle = !relative_angle;	
 //}
 
-if relative_angle {
-	camera_set_view_angle(view, radtodeg(follow.components[0].angle));
-} else {
-	camera_set_view_angle(view, 0);	
-}
-
 if instance_exists(follow) {
+	
+	if relative_angle {
+		camera_set_view_angle(view, radtodeg(follow.components[0].angle));
+	} else {
+		camera_set_view_angle(view, 0);	
+	}
 	
 	camx = lerp(camx, follow.position.x - (view_width*zoom)/2,  1);
 	camy = lerp(camy, follow.position.y - (view_height*zoom)/2, 1);

@@ -25,19 +25,17 @@ inv_mass = mass == 0 ? 0 : 1 / mass;
 
 reposition = function() {
 	
-	position = vec_sum(position, vec_multiply(velocity, 5));
-	
-	//components[0].position = position;
-	//components[0].get_vertices();	
+	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
+	position = vec_subtract(local_position, global.world_position)
 	
 	for (var i = 0; i < array_length(components); i++) {
 		
-		var _dongus = 180 - point_direction(position.x + components[i].xoff, position.y + components[i].yoff, position.x, position.y);
+		var _off = 180 - point_direction(position.x + components[i].xoff, position.y + components[i].yoff, position.x, position.y);
 		var _dist = point_distance(position.x + components[i].xoff, position.y + components[i].yoff, position.x, position.y);
 		
 		components[i].angle = components[0].angle;
-		components[i].position.x = position.x + lengthdir_x(_dist, _dongus - radtodeg(components[0].angle)); //((components[0].dir.x) * components[0].length);
-		components[i].position.y = position.y + lengthdir_y(_dist, _dongus - radtodeg(components[0].angle));//((components[0].dir.y) * components[0].length);
+		components[i].position.x = position.x + lengthdir_x(_dist, _off - radtodeg(components[0].angle)); //((components[0].dir.x) * components[0].length);
+		components[i].position.y = position.y + lengthdir_y(_dist, _off - radtodeg(components[0].angle));//((components[0].dir.y) * components[0].length);
 		components[i].get_vertices();
 	}
 	

@@ -8,6 +8,11 @@ global.time += global.delta;
 array_pop(fps_avg);
 array_insert(fps_avg, 0, fps_real);	
 
+////// vvv TEMP STUFF
+global.world_position.x += 10 * (keyboard_check(ord("D")) - keyboard_check(ord("A")))
+global.world_position.y += 10 * (keyboard_check(ord("S")) - keyboard_check(ord("W")))
+////// ^^^ TEMP STUFF
+
 /// Physics stuff
 for (var i = 0; i < array_length(BODIES); i++) {	
 	with BODIES[i] {

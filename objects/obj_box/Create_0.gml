@@ -7,7 +7,8 @@ components = [instance_create_layer(x,y,layer,obj_rectangle, {vertex: [new vecto
 inv_mass = mass == 0 ? 0 : 1 / mass;
 
 reposition = function() {
-	position = vec_sum(position, velocity)
+	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
+	position = vec_subtract(local_position, global.world_position);
 	
 	components[0].position = position;
 	components[0].get_vertices();	

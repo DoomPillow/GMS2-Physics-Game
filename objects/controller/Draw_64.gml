@@ -17,3 +17,4 @@ draw_text(60, 170, $"# of bbox overlaps: {overlapping_bboxes}");
 draw_rectangle(260, 170, 260 + (20 * overlapping_bboxes), 190, false);
 
 draw_text(60, 200, $"Showing broad phase: {show_bboxes}");
+draw_text(60, 230, $"World pos: ({global.world_position.x}, {global.world_position.y})");

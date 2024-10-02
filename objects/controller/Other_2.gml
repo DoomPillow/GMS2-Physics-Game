@@ -1,5 +1,7 @@
 /// @description
 
+global.world_position = new vector(0, 0)
+
 /////// INIT
 global.particle_system = part_system_create();
 
