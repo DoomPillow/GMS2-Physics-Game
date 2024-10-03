@@ -8,6 +8,7 @@ function collision_manifold(_o1, _o2, _normal, _pen, _cp) constructor {
 	
 	resolve_penetration = function() {
 		var pen_resolution = vec_multiply(normal, pen / (o1.inv_mass + o2.inv_mass));
+		show_debug_message(pen_resolution)
 		o1.local_position = vec_sum(o1.local_position, vec_multiply(pen_resolution, o1.inv_mass) );
 		o2.local_position = vec_sum(o2.local_position, vec_multiply(pen_resolution, -o2.inv_mass) );
 		//o1.position = vec_subtract(o1.local_position, global.world_position);
@@ -19,6 +20,7 @@ function collision_manifold(_o1, _o2, _normal, _pen, _cp) constructor {
 		//var _normal = vec_normalize(vec_subtract(_points[0], _points[1]));
 	
 		// Closing velocity
+		//show_message($"{cp}\n {o1.local_position} \n {o1.position}")
 		var col_arm1 = vec_subtract(cp, o1.local_position);
 		var rot_vel1 = new vector(-o1.angular_velocity * col_arm1.y, o1.angular_velocity * col_arm1.x);
 		var clos_vel1 = vec_sum(o1.velocity, rot_vel1);
@@ -48,6 +50,10 @@ function collision_manifold(_o1, _o2, _normal, _pen, _cp) constructor {
 		o1.angular_velocity += o1.inv_inertia * vec_cross(col_arm1, _impulseVec)
 		o2.angular_velocity -= o2.inv_inertia * vec_cross(col_arm2, _impulseVec);
 		//show_message( o2.inv_inertia * vec_cross(col_arm2, _impulseVec));
+		
+		//
+		//o1.position = vec_subtract(o1.local_position, global.world_position);
+		//o2.position = vec_subtract(o2.local_position, global.world_position);
 	}
 	
 }

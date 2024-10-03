@@ -9,8 +9,9 @@ array_pop(fps_avg);
 array_insert(fps_avg, 0, fps_real);	
 
 ////// vvv TEMP STUFF
-global.world_position.x += 10 * (keyboard_check(ord("D")) - keyboard_check(ord("A")))
-global.world_position.y += 10 * (keyboard_check(ord("S")) - keyboard_check(ord("W")))
+//global.world_position.x += 10 * (keyboard_check(vk_right) - keyboard_check(vk_left))
+//global.world_position.y += 10 * (keyboard_check(vk_down) - keyboard_check(vk_up))
+//global.world_position = vec_sum(obj_ship.local_position, new vector(-1500, -900));
 ////// ^^^ TEMP STUFF
 
 /// Physics stuff
@@ -21,7 +22,6 @@ for (var i = 0; i < array_length(BODIES); i++) {
 		
 	}
 }
-
 
 overlapping_bboxes = 0; // Debug only
 // Loop through each physics object...
@@ -76,7 +76,7 @@ for (var i = 0; i < array_length(BODIES); i++) {
 // Resolve each collision
 for (var i = 0; i < array_length(COLLISIONS); i++) {
 	COLLISIONS[i].resolve_penetration();
-	COLLISIONS[i].resolve_collision();
+	//COLLISIONS[i].resolve_collision();
 }
 
 
