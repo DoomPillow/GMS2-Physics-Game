@@ -8,3 +8,5 @@ if controller.show_bboxes {
 //draw_text(position.x, position.y, "O")
 //draw_line(position.x, position.y, components[0].position.x, components[0].position.y);
 //draw_set_color(c_white)
+
+draw_text(position.x, position.y + 100, id)

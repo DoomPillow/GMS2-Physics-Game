@@ -9,8 +9,8 @@ array_pop(fps_avg);
 array_insert(fps_avg, 0, fps_real);	
 
 ////// vvv TEMP STUFF
-//global.world_position.x += 10 * (keyboard_check(vk_right) - keyboard_check(vk_left))
-//global.world_position.y += 10 * (keyboard_check(vk_down) - keyboard_check(vk_up))
+global.world_position.x += 10 * (keyboard_check(vk_right) - keyboard_check(vk_left))
+global.world_position.y += 10 * (keyboard_check(vk_down) - keyboard_check(vk_up))
 //global.world_position = vec_sum(obj_ship.local_position, new vector(-1500, -900));
 ////// ^^^ TEMP STUFF
 

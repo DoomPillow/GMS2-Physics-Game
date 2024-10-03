@@ -30,9 +30,9 @@ draw_set_color(c_white);
 //draw_arrow(position.x, position.y, position.x + lengthdir_x(30, pi/2 - radtodeg(angle)), position.y +  + lengthdir_y(30, pi/2 - radtodeg(angle)), 5)
 //draw_set_color(c_white);
 
-draw_set_halign(fa_middle)
-draw_set_valign(fa_center)
-draw_text(position.x, position.y + 150, position)
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
+//draw_set_halign(fa_middle)
+//draw_set_valign(fa_center)
+//draw_text(position.x, position.y + 150, local_position)
+//draw_set_halign(fa_left)
+//draw_set_valign(fa_top)
 
