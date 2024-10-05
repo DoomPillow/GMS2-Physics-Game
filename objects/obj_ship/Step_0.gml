@@ -7,21 +7,21 @@ if movy {
 	var _x_input = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 	var _y_input = keyboard_check(ord("W")) - keyboard_check(ord("S"));
 	
-	accel = vec_multiply(new vector(lengthdir_x(thrust_speed, radtodeg(-components[0].angle) + 90), lengthdir_y(thrust_speed, radtodeg(-components[0].angle) + 90)), _y_input);
+	accel = vec_multiply(new vector(lengthdir_x(thrust_speed, radtodeg(-angle) + 90), lengthdir_y(thrust_speed, radtodeg(-angle) + 90)), _y_input);
 	angular_velocity += _x_input * 0.003;
 	
 	if _y_input == 1 {
 		part_type_life(global.pt_thrust1, 10, 100);
-		part_type_direction(global.pt_thrust1, radtodeg(-components[0].angle) - 15 - 90, radtodeg(-components[0].angle) + 15 - 90, 0, 0);
-		part_particles_create(global.particle_system, components[0].position.x - 16 + lengthdir_x(14, radtodeg(-components[0].angle) - 90), components[0].position.y - 16 + lengthdir_y(14, radtodeg(-components[0].angle) - 90), global.pt_thrust1, 2);	
+		part_type_direction(global.pt_thrust1, radtodeg(-angle) - 15 - 90, radtodeg(-angle) + 15 - 90, 0, 0);
+		part_particles_create(global.particle_system, local_position.x - 16 + lengthdir_x(14, radtodeg(-angle) - 90), local_position.y - 16 + lengthdir_y(14, radtodeg(-angle) - 90), global.pt_thrust1, 2);	
 	} else if _y_input == -1 {
 		part_type_life(global.pt_thrust1, 5, 30);
 		
-		part_type_direction(global.pt_thrust1, radtodeg(-components[0].angle) - 15 + 180, radtodeg(-components[0].angle) + 15 + 180, 0, 0);
-		part_particles_create(global.particle_system, components[0].position.x - 16 + lengthdir_x(-65, radtodeg(-components[0].angle) - 90 + 40), components[0].position.y - 16 + lengthdir_y(-65, radtodeg(-components[0].angle) - 90 + 40), global.pt_thrust1, 2);
+		part_type_direction(global.pt_thrust1, radtodeg(-angle) - 15 + 180, radtodeg(-angle) + 15 + 180, 0, 0);
+		part_particles_create(global.particle_system, local_position.x - 16 + lengthdir_x(-65, radtodeg(-angle) - 90 + 40), local_position.y - 16 + lengthdir_y(-65, radtodeg(-angle) - 90 + 40), global.pt_thrust1, 2);
 		
-		part_type_direction(global.pt_thrust1, radtodeg(-components[0].angle) - 15 + 0, radtodeg(-components[0].angle) + 15 + 0, 0, 0);
-		part_particles_create(global.particle_system, components[0].position.x - 16 + lengthdir_x(-65, radtodeg(-components[0].angle) - 90 - 40), components[0].position.y - 16 + lengthdir_y(-65, radtodeg(-components[0].angle) - 90 - 40), global.pt_thrust1, 2);
+		part_type_direction(global.pt_thrust1, radtodeg(-angle) - 15 + 0, radtodeg(-angle) + 15 + 0, 0, 0);
+		part_particles_create(global.particle_system, local_position.x - 16 + lengthdir_x(-65, radtodeg(-angle) - 90 - 40), local_position.y - 16 + lengthdir_y(-65, radtodeg(-angle) - 90 - 40), global.pt_thrust1, 2);
 	}
 	
 } else {
@@ -33,24 +33,24 @@ if movy {
 	
 	if following {
 		
-		var _dir = point_direction(components[0].position.x, components[0].position.y, mouse_x, mouse_y);//global.hog.components[0].position.x, global.hog.components[0].position.y);
+		var _dir = point_direction(local_position.x, local_position.y, mouse_x, mouse_y);//global.hog.components[0].position.x, global.hog.components[0].position.y);
 		
-		var _diff = angle_difference(_dir, 90 + radtodeg(-components[0].angle));
+		var _diff = angle_difference(_dir, 90 + radtodeg(-angle));
 		
 		if abs(_diff) > 35 {
 			angular_velocity += (0.002 + ((360-_diff) / 72000)) * -sign(_diff);
-		} else if point_distance(components[0].position.x, components[0].position.y, mouse_x, mouse_y) > 350 {
-			part_type_direction(global.pt_thrust2, radtodeg(-components[0].angle) - 15 - 90, radtodeg(-components[0].angle) + 15 - 90, 0, 0);
-			part_particles_create(global.particle_system, components[0].position.x - 16 + lengthdir_x(14, radtodeg(-components[0].angle) - 90), components[0].position.y - 16 + lengthdir_y(14, radtodeg(-components[0].angle) - 90), global.pt_thrust2, 2);	
+		} else if point_distance(local_position.x, local_position.y, mouse_x, mouse_y) > 350 {
+			part_type_direction(global.pt_thrust2, radtodeg(-angle) - 15 - 90, radtodeg(-angle) + 15 - 90, 0, 0);
+			part_particles_create(global.particle_system, local_position.x - 16 + lengthdir_x(14, radtodeg(-angle) - 90), local_position.y - 16 + lengthdir_y(14, radtodeg(-angle) - 90), global.pt_thrust2, 2);	
 			_oinking = 1;
 		}
 		
 	}
 	
-	accel = vec_multiply(new vector(lengthdir_x(1, radtodeg(-components[0].angle) + 90), lengthdir_y(1, radtodeg(-components[0].angle) + 90)), _oinking);
+	accel = vec_multiply(new vector(lengthdir_x(1, radtodeg(-angle) + 90), lengthdir_y(1, radtodeg(-angle) + 90)), _oinking);
 }
 
-components[0].angle += angular_velocity;
+angle += angular_velocity;
 angular_velocity *= 0.95;
 
 accel = vec_multiply(vec_normalize(accel), acceleration * global.delta);

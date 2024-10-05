@@ -16,11 +16,20 @@ if instance_exists(follow) {
 		camera_set_view_angle(view, 0);	
 	}
 	
-	camx = lerp(camx, follow.position.x - (view_width*zoom)/2,  1);
-	camy = lerp(camy, follow.position.y - (view_height*zoom)/2, 1);
-	//camx = clamp(camx, 0, room_width - view_width);
-	//camy = clamp(camy, 0, room_height - view_height);
+	camx = -(view_width*zoom)/2
+	camy = -(view_height*zoom)/2
+	
+	global.world_position.x = follow.local_position.x;
+	global.world_position.y = follow.local_position.y;
 	
 	camera_set_view_pos(view, camx, camy);
 
+} else {
+	
+	camx = -(view_width*zoom)/2
+	camy = -(view_height*zoom)/2
+	//camx = clamp(camx, 0, room_width - view_width);
+	//camy = clamp(camy, 0, room_height - view_height);
+	
+	camera_set_view_pos(view, camx, camy);	
 }

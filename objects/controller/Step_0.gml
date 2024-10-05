@@ -8,18 +8,26 @@ global.time += global.delta;
 array_pop(fps_avg);
 array_insert(fps_avg, 0, fps_real);	
 
+
+
 ////// vvv TEMP STUFF
-global.world_position.x += 10 * (keyboard_check(vk_right) - keyboard_check(vk_left))
-global.world_position.y += 10 * (keyboard_check(vk_down) - keyboard_check(vk_up))
+//global.world_position.x += 10 * (keyboard_check(vk_right) - keyboard_check(vk_left))
+//global.world_position.y += 10 * (keyboard_check(vk_down) - keyboard_check(vk_up))
 //global.world_position = vec_sum(obj_ship.local_position, new vector(-1500, -900));
 ////// ^^^ TEMP STUFF
+
+// Make background and particles move in the new coordinate system
+part_system_position(global.particle_system, -global.world_position.x, -global.world_position.y);
+var back_id = layer_get_id("Background");
+layer_x(back_id, -global.world_position.x);
+layer_y(back_id, -global.world_position.y);
 
 /// Physics stuff
 for (var i = 0; i < array_length(BODIES); i++) {	
 	with BODIES[i] {
 		
 		reposition();
-		
+
 	}
 }
 
@@ -73,11 +81,13 @@ for (var i = 0; i < array_length(BODIES); i++) {
 	}
 }
 
+
 // Resolve each collision
 for (var i = 0; i < array_length(COLLISIONS); i++) {
 	COLLISIONS[i].resolve_penetration();
-	//COLLISIONS[i].resolve_collision();
+	COLLISIONS[i].resolve_collision();
 }
+
 
 
 // reset array at the end of every frame

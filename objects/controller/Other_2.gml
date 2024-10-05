@@ -68,13 +68,13 @@ function find_axes(o1, o2) {
     
     if o1.object_index == obj_circle && o2.object_index == obj_circle {
         // For two circles, we only need the axis between their centers
-        array_push(axes, vec_normalize(vec_subtract(o2.local_position, o1.local_position)));
+        array_push(axes, vec_normalize(vec_subtract(o2.position, o1.position)));
         return axes;
     }
     
     if o1.object_index == obj_circle {
         // Circle vs Polygon (o2)
-        array_push(axes, vec_normalize(vec_subtract(closest_vertex_to_point(o2, o1.local_position), o1.local_position)));
+        array_push(axes, vec_normalize(vec_subtract(closest_vertex_to_point(o2, o1.position), o1.position)));
         array_push(axes, vec_normal(o2.dir));  // Polygon edge normal
         
         if o2.object_index == obj_rectangle {
@@ -91,7 +91,7 @@ function find_axes(o1, o2) {
             array_push(axes, o1.dir);  // Add o1's direction as an axis
         }
         
-		show_message($"{o1}\n {o2}")
+		//show_message($"{o1}\n {o2}")
         array_push(axes, vec_normalize(vec_subtract(closest_vertex_to_point(o1, o2.position), o2.position)));
         return axes;
     }
@@ -112,7 +112,7 @@ function closest_vertex_to_point(obj, p) {
 	for (var i = 0; i < array_length(obj.vertex); i++) {
 		if vec_magnitude(vec_subtract(p, obj.vertex[i])) < _min_dist || _min_dist == 999 {
 			_closest_vertex = obj.vertex[i];
-			_min_dist = vec_magnitude(vec_subtract(p, obj.vertex[i]));
+			_min_dist = vec_magnitude(vec_subtract(p, _closest_vertex));
 		}
 	}
 	

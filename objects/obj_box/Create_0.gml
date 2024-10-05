@@ -11,13 +11,13 @@ reposition = function() {
 	position = vec_subtract(local_position, global.world_position);
 	
 	components[0].position = position;
+	components[0].angle = angle;
 	components[0].get_vertices();	
 }
 
 inertia = mass * (power(components[0].width, 2) + power(components[0].length, 2)) * (1/12);
 inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 
-angle = 0;
 angular_velocity = 0;
 
 bbox = get_bbox();

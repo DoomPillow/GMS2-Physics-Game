@@ -13,6 +13,8 @@ bbox = []
 velocity = new vector(vx, vy);
 accel = new vector(0, 0);
 acceleration = 1;
+
+angle = 0;
 angular_velocity = 0;
 fric = 0.015;
 

@@ -33,9 +33,9 @@ reposition = function() {
 		var _off = 180 - point_direction(position.x + components[i].xoff, position.y + components[i].yoff, position.x, position.y);
 		var _dist = point_distance(position.x + components[i].xoff, position.y + components[i].yoff, position.x, position.y);
 		
-		components[i].angle = components[0].angle;
-		components[i].position.x = position.x + lengthdir_x(_dist, _off - radtodeg(components[0].angle)); //((components[0].dir.x) * components[0].length);
-		components[i].position.y = position.y + lengthdir_y(_dist, _off - radtodeg(components[0].angle));//((components[0].dir.y) * components[0].length);
+		components[i].angle = angle;
+		components[i].position.x = position.x + lengthdir_x(_dist, _off - radtodeg(angle)); //((components[0].dir.x) * components[0].length);
+		components[i].position.y = position.y + lengthdir_y(_dist, _off - radtodeg(angle));//((components[0].dir.y) * components[0].length);
 		components[i].get_vertices();
 	}
 	
@@ -44,7 +44,6 @@ reposition = function() {
 inertia = 5 * array_length(components) * mass * (power(components[0].width, 2) + power(components[0].length, 2)) * (1/12);
 inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 
-angle = 0;
 angular_velocity = 0;
 
 thrust_speed = 1

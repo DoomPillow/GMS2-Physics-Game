@@ -22,9 +22,6 @@ velocity = new vector(0,0);
 inertia = mass * (power(2*components[0].width, 2) + power(components[0].length+2*components[0].width, 2)) / 12;
 inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 
-
-angle = 0;
-
 reposition = function() {
 	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
 	position = vec_subtract(local_position, global.world_position);
