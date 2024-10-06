@@ -57,7 +57,6 @@ accel = vec_multiply(vec_normalize(accel), acceleration * global.delta);
 velocity = vec_sum(velocity, accel);
 velocity = vec_multiply(velocity, 1 - fric);
 
-
 //var _rot_mat = rotation_matrix(angle);
 //dir = mat_multiply_vec(_rot_mat, refdir);
 //

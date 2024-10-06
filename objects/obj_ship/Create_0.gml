@@ -25,7 +25,7 @@ inv_mass = mass == 0 ? 0 : 1 / mass;
 
 reposition = function() {
 	
-	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
+	local_position = vec_sum(local_position, vec_multiply(velocity, keyboard_check(vk_shift) ? 1000 : 1));
 	position = vec_subtract(local_position, global.world_position)
 	
 	for (var i = 0; i < array_length(components); i++) {

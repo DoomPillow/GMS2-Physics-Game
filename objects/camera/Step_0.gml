@@ -19,8 +19,7 @@ if instance_exists(follow) {
 	camx = -(view_width*zoom)/2
 	camy = -(view_height*zoom)/2
 	
-	global.world_position.x = follow.local_position.x;
-	global.world_position.y = follow.local_position.y;
+	global.world_position = follow.local_position;
 	
 	camera_set_view_pos(view, camx, camy);
 
