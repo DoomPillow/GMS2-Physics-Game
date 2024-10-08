@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_ship",
+  "%Name":"obj_teapot",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_ship",
+  "name":"obj_teapot",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"150",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
   ],
   "parent":{
     "name":"complex objects",
@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_complex_object",
-    "path":"sprites/spr_complex_object/spr_complex_object.yy",
+    "name":"spr_teapot",
+    "path":"sprites/spr_teapot/spr_teapot.yy",
   },
   "spriteMaskId":null,
   "visible":true,
