@@ -42,6 +42,7 @@
     {"name":"spr_particle","order":10,"path":"sprites/spr_particle/spr_particle.yy",},
     {"name":"spr_rectangle","order":7,"path":"sprites/spr_rectangle/spr_rectangle.yy",},
     {"name":"spr_rigidbody","order":8,"path":"sprites/spr_rigidbody/spr_rigidbody.yy",},
+    {"name":"spr_thing","order":12,"path":"sprites/spr_thing/spr_thing.yy",},
     {"name":"spr_wall","order":1,"path":"sprites/spr_wall/spr_wall.yy",},
   ],
 }

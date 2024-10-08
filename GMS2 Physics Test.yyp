@@ -66,6 +66,7 @@
     {"id":{"name":"spr_particle","path":"sprites/spr_particle/spr_particle.yy",},},
     {"id":{"name":"spr_rectangle","path":"sprites/spr_rectangle/spr_rectangle.yy",},},
     {"id":{"name":"spr_rigidbody","path":"sprites/spr_rigidbody/spr_rigidbody.yy",},},
+    {"id":{"name":"spr_thing","path":"sprites/spr_thing/spr_thing.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
   ],
   "resourceType":"GMProject",

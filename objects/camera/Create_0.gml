@@ -2,7 +2,7 @@
 
 view_width = display_get_width()/5;
 view_height = display_get_height()/5;
-zoom = 4;
+zoom = 5;
 
 window_scale = 3;
 crunchy = 1;
