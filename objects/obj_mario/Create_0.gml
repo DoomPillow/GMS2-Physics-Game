@@ -2,7 +2,7 @@
 
 event_inherited();
 
-components = load_object_from_sprite(spr_teapot, irandom(5))
+components = load_object_from_sprite(sprite_index, irandom(5))
 
 _centerx = 0;
 _centery = 0;
