@@ -22,15 +22,15 @@ velocity = new vector(0,0);
 inertia = mass * (power(2*components[0].width, 2) + power(components[0].length+2*components[0].width, 2)) / 12;
 inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 
-
-angle = 0;
-
 reposition = function() {
-	components[0].position = vec_sum(components[0].position, velocity);
+	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
+	position = vec_subtract(local_position, global.world_position);
+	
+	components[0].position = position;
 	components[0].angle = angle;
 	components[0].get_vertices();
-	components[1].position = vec_sum( components[0].position, vec_multiply( components[0].dir, -components[0].length * 0.5));
-	components[2].position = vec_sum( components[0].position, vec_multiply( components[0].dir, components[0].length * 0.5));	
+	components[1].position = vec_sum( position, vec_multiply( components[0].dir, -components[0].length * 0.5));
+	components[2].position = vec_sum( position, vec_multiply( components[0].dir, components[0].length * 0.5));	
 }
 
 bbox = get_bbox();

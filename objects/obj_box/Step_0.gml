@@ -12,7 +12,7 @@ if movy {
 	
 }
 
-components[0].angle += angular_velocity;
+angle += angular_velocity;
 angular_velocity *= 0.95;
 
 accel = vec_multiply(vec_normalize(accel), acceleration * global.delta);

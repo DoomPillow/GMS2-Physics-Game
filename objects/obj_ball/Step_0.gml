@@ -14,5 +14,4 @@ if movy {
 
 accel = vec_multiply(vec_normalize(accel), acceleration * global.delta);
 velocity = vec_sum(velocity, accel);
-velocity = vec_multiply(velocity, 1 - fric);
-
+velocity = vec_multiply(velocity, 0.94);

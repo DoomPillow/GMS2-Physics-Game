@@ -1,5 +1,7 @@
 /// @description
 
+global.world_position = new vector(0, 0)
+
 /////// INIT
 global.particle_system = part_system_create();
 
@@ -16,11 +18,6 @@ global.time = 0;
 global.target_fps = 60;
 global.timescale = 1;
 global.delta = 0;
-
-/// Global variables to store previous state and cached collisions
-cached_collisions = ds_map_create(); // Map to store cached collisions
-prev_positions = ds_map_create();    // Map to store previous positions of objects
-prev_bboxes = ds_map_create();       // Map to store previous bounding boxes
 
 // End init stage
 room_goto_next();
@@ -94,6 +91,7 @@ function find_axes(o1, o2) {
             array_push(axes, o1.dir);  // Add o1's direction as an axis
         }
         
+		//show_message($"{o1}\n {o2}")
         array_push(axes, vec_normalize(vec_subtract(closest_vertex_to_point(o1, o2.position), o2.position)));
         return axes;
     }
@@ -114,7 +112,7 @@ function closest_vertex_to_point(obj, p) {
 	for (var i = 0; i < array_length(obj.vertex); i++) {
 		if vec_magnitude(vec_subtract(p, obj.vertex[i])) < _min_dist || _min_dist == 999 {
 			_closest_vertex = obj.vertex[i];
-			_min_dist = vec_magnitude(vec_subtract(p, obj.vertex[i]));
+			_min_dist = vec_magnitude(vec_subtract(p, _closest_vertex));
 		}
 	}
 	
