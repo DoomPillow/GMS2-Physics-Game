@@ -15,12 +15,12 @@ if color == false {
 	
 } else {
 	
-	draw_set_color(c_black);
-	draw_line(vertex[0].x, vertex[0].y, vertex[1].x, vertex[1].y);
-	draw_line(vertex[1].x, vertex[1].y, vertex[2].x, vertex[2].y);
-	draw_line(vertex[2].x, vertex[2].y, vertex[3].x, vertex[3].y);
-	draw_line(vertex[3].x, vertex[3].y, vertex[0].x, vertex[0].y);
-	draw_set_color(c_white);
+	//draw_set_color(c_black);
+	//draw_line(vertex[0].x, vertex[0].y, vertex[1].x, vertex[1].y);
+	//draw_line(vertex[1].x, vertex[1].y, vertex[2].x, vertex[2].y);
+	//draw_line(vertex[2].x, vertex[2].y, vertex[3].x, vertex[3].y);
+	//draw_line(vertex[3].x, vertex[3].y, vertex[0].x, vertex[0].y);
+	//draw_set_color(c_white);
 
 	draw_primitive_begin(pr_trianglestrip);
 	draw_vertex_color(vertex[0].x, vertex[0].y, color, 1);

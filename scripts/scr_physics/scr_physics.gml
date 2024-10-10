@@ -7,7 +7,6 @@ function collision_manifold(_o1, _o2, _normal, _pen, _cp) constructor {
 	cp = _cp;
 	
 	resolve_penetration = function() {
-		show_debug_message($"{pen}, {vec_magnitude(o2.velocity)}")
 		var pen_resolution = vec_multiply(normal, pen / (o1.inv_mass + o2.inv_mass));
 		o1.local_position = vec_sum(o1.local_position, vec_multiply(pen_resolution,  o1.inv_mass ) );
 		o2.local_position = vec_sum(o2.local_position, vec_multiply(pen_resolution, -o2.inv_mass) );
