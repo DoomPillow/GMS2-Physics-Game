@@ -25,6 +25,7 @@
     {"name":"obj_capsule","order":2,"path":"objects/obj_capsule/obj_capsule.yy",},
     {"name":"obj_line","order":1,"path":"objects/obj_line/obj_line.yy",},
     {"name":"obj_mario","order":2,"path":"objects/obj_mario/obj_mario.yy",},
+    {"name":"obj_player","order":3,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_rectangle","order":2,"path":"objects/obj_rectangle/obj_rectangle.yy",},
     {"name":"obj_ship","order":1,"path":"objects/obj_ship/obj_ship.yy",},
     {"name":"obj_wall","order":3,"path":"objects/obj_wall/obj_wall.yy",},

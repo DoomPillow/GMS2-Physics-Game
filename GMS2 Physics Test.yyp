@@ -47,6 +47,7 @@
     {"id":{"name":"obj_line","path":"objects/obj_line/obj_line.yy",},},
     {"id":{"name":"obj_mario","path":"objects/obj_mario/obj_mario.yy",},},
     {"id":{"name":"obj_meteor","path":"objects/obj_meteor/obj_meteor.yy",},},
+    {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_rectangle","path":"objects/obj_rectangle/obj_rectangle.yy",},},
     {"id":{"name":"obj_ship","path":"objects/obj_ship/obj_ship.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},

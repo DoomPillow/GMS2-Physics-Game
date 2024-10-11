@@ -1,5 +1,6 @@
 /// @description
 
+if false {
 for (var i = 0; i < array_length(contact_vertices); i++) {
 	if contact_vertices[i].pen != -1 {
 		draw_set_color(c_red);
@@ -10,7 +11,7 @@ for (var i = 0; i < array_length(contact_vertices); i++) {
 		draw_set_color(c_white);
 	}
 }
-
+}
 contact_vertices = [];
 
 draw_set_alpha(0.5);
