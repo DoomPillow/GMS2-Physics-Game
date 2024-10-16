@@ -47,6 +47,8 @@
     {"name":"spr_pixel","order":13,"path":"sprites/spr_pixel/spr_pixel.yy",},
     {"name":"spr_rectangle","order":7,"path":"sprites/spr_rectangle/spr_rectangle.yy",},
     {"name":"spr_rigidbody","order":8,"path":"sprites/spr_rigidbody/spr_rigidbody.yy",},
+    {"name":"spr_space_station","order":15,"path":"sprites/spr_space_station/spr_space_station.yy",},
+    {"name":"spr_spaceship","order":14,"path":"sprites/spr_spaceship/spr_spaceship.yy",},
     {"name":"spr_wall","order":1,"path":"sprites/spr_wall/spr_wall.yy",},
   ],
 }

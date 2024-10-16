@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_maro",
-    "path":"sprites/spr_maro/spr_maro.yy",
+    "name":"spr_space_station",
+    "path":"sprites/spr_space_station/spr_space_station.yy",
   },
   "spriteMaskId":null,
   "visible":true,

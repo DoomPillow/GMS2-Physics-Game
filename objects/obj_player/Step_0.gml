@@ -12,16 +12,18 @@ if movy {
 	angular_velocity += _a_input * 0.005;
 	
 	if keyboard_check_pressed(vk_space) {
-		velocity.y -= 10;	
+		velocity.y -= 5;	
 	}
 	
 }
+
+velocity.y += 0.1;
 
 angle += angular_velocity;
 angular_velocity *= 0.95;
 
 accel = vec_multiply(vec_normalize(accel), acceleration * global.delta);
 velocity = vec_sum(velocity, accel);
-velocity.x = clamp(velocity.x, -15,15);
+velocity.x = clamp(velocity.x, -8,8);
 velocity.y = max(velocity.y, -15);
 velocity = vec_multiply(velocity, 1 - fric);

@@ -71,6 +71,8 @@
     {"id":{"name":"spr_pixel","path":"sprites/spr_pixel/spr_pixel.yy",},},
     {"id":{"name":"spr_rectangle","path":"sprites/spr_rectangle/spr_rectangle.yy",},},
     {"id":{"name":"spr_rigidbody","path":"sprites/spr_rigidbody/spr_rigidbody.yy",},},
+    {"id":{"name":"spr_space_station","path":"sprites/spr_space_station/spr_space_station.yy",},},
+    {"id":{"name":"spr_spaceship","path":"sprites/spr_spaceship/spr_spaceship.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
   ],
   "resourceType":"GMProject",

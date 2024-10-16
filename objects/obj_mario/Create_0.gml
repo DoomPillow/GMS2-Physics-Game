@@ -43,7 +43,7 @@ reposition = function() {
 	
 }
 
-inertia = 5 * array_length(components) * mass * (power(components[0].width, 2) + power(components[0].length, 2)) * (1/18);
+inertia = 5 * 1 * array_length(components) * mass * (power(components[0].width, 2) + power(components[0].length, 2)) * (1/18);
 inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 
 angular_velocity = 0;
