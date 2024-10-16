@@ -45,6 +45,7 @@
     {"name":"spr_maro","order":12,"path":"sprites/spr_maro/spr_maro.yy",},
     {"name":"spr_particle","order":10,"path":"sprites/spr_particle/spr_particle.yy",},
     {"name":"spr_pixel","order":13,"path":"sprites/spr_pixel/spr_pixel.yy",},
+    {"name":"spr_player","order":16,"path":"sprites/spr_player/spr_player.yy",},
     {"name":"spr_rectangle","order":7,"path":"sprites/spr_rectangle/spr_rectangle.yy",},
     {"name":"spr_rigidbody","order":8,"path":"sprites/spr_rigidbody/spr_rigidbody.yy",},
     {"name":"spr_space_station","order":15,"path":"sprites/spr_space_station/spr_space_station.yy",},

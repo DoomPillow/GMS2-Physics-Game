@@ -69,6 +69,7 @@
     {"id":{"name":"spr_maro","path":"sprites/spr_maro/spr_maro.yy",},},
     {"id":{"name":"spr_particle","path":"sprites/spr_particle/spr_particle.yy",},},
     {"id":{"name":"spr_pixel","path":"sprites/spr_pixel/spr_pixel.yy",},},
+    {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_rectangle","path":"sprites/spr_rectangle/spr_rectangle.yy",},},
     {"id":{"name":"spr_rigidbody","path":"sprites/spr_rigidbody/spr_rigidbody.yy",},},
     {"id":{"name":"spr_space_station","path":"sprites/spr_space_station/spr_space_station.yy",},},

@@ -2,11 +2,16 @@
 
 event_inherited();
 
-components = [instance_create_layer(x,y,layer,obj_rectangle, {vertex: [new vector(x, y), new vector(x+sprite_width, y)], width: sprite_height})];
+components = [instance_create_layer(x,y,layer,obj_rectangle, {vertex: [new vector(x, y), new vector(x+32, y)], width: 32})];
 
 inv_mass = mass == 0 ? 0 : 1 / mass;
 
 reposition = function() {
+	
+	if keyboard_check_pressed(vk_space) {
+		velocity.y -= 5;	
+	}
+	
 	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
 	position = vec_subtract(local_position, global.world_position);
 	

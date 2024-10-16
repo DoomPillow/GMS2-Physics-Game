@@ -11,10 +11,6 @@ if movy {
 	accel = new vector(_x_input, _y_input);
 	angular_velocity += _a_input * 0.005;
 	
-	if keyboard_check_pressed(vk_space) {
-		velocity.y -= 5;	
-	}
-	
 }
 
 velocity.y += 0.1;
