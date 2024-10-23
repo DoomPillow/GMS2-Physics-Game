@@ -54,6 +54,11 @@ for (var i = 0; i < array_length(BODIES); i++) {
 			for (var o1_comp = 0; o1_comp < array_length(other.BODIES[i].components); o1_comp++) {
 				for (var o2_comp = 0; o2_comp < array_length(other.BODIES[body_pair].components); o2_comp++) {
 					
+					// Continue if not on the same collision layer
+					if other.BODIES[i].components[o1_comp].collision_layer != other.BODIES[body_pair].components[o2_comp].collision_layer {
+						continue;	
+					}
+					
 					// Perform breadth-distance broad phase
 					if point_distance(other.BODIES[i].components[o1_comp].position.x, other.BODIES[i].components[o1_comp].position.y, other.BODIES[body_pair].components[o2_comp].position.x, other.BODIES[body_pair].components[o2_comp].position.y) > (other.BODIES[i].components[o1_comp].breadth + other.BODIES[body_pair].components[o2_comp].breadth) {
 						continue;	

@@ -9,7 +9,7 @@ inv_mass = mass == 0 ? 0 : 1 / mass;
 reposition = function() {
 	
 	if keyboard_check_pressed(vk_space) {
-		velocity.y -= 5;	
+		velocity.y -= 8;	
 	}
 	
 	local_position = vec_sum(local_position, vec_multiply(velocity, 1));

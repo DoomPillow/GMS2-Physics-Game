@@ -36,11 +36,21 @@ function load_object_from_sprite(_spr,_submg)
 					
 					var _col = make_color_rgb(_r,_g,_b);
 					//show_message(_col)
-					if _col != 0 {
-						
-						array_push(components, instance_create_layer(x,y,layer,obj_rectangle, {color: _col, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
-						mass += 6;
-
+					//if _col != 0 {
+					//	
+					//	array_push(components, instance_create_layer(x,y,layer,obj_rectangle, {color: _col, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
+					//	mass += 6;
+					//
+					//}
+					switch (_col) {
+						case 16777215:
+							array_push(components, instance_create_layer(x,y,layer,obj_rectangle, {color: _col, collision_layer: 0, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
+							mass += 6;
+						break;
+						case 7368816:
+							array_push(components, instance_create_layer(x,y,layer,obj_rectangle, {color: _col, collision_layer: 1, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
+							mass += 1;
+						break;
 					}
 			}
 	}
