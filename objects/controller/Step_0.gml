@@ -18,9 +18,22 @@ array_insert(fps_avg, 0, fps_real);
 
 // Make background and particles move in the new coordinate system
 part_system_position(global.particle_system, -global.world_position.x, -global.world_position.y);
-var back_id = layer_get_id("Background");
-layer_x(back_id, -global.world_position.x);
-layer_y(back_id, -global.world_position.y);
+
+var back_id = layer_get_id("Background_0");
+layer_x(back_id, -global.world_position.x * 0.9);
+layer_y(back_id, -global.world_position.y * 0.9);
+
+back_id = layer_get_id("Background_1");
+layer_x(back_id, -global.world_position.x * 0.7);
+layer_y(back_id, -global.world_position.y * 0.7);
+
+back_id = layer_get_id("Background_2");
+layer_x(back_id, -global.world_position.x * 0.25);
+layer_y(back_id, -global.world_position.y * 0.25);
+
+back_id = layer_get_id("Background_3");
+layer_x(back_id, -global.world_position.x * 0.045);
+layer_y(back_id, -global.world_position.y * 0.045);
 
 /// Physics stuff
 for (var i = 0; i < array_length(BODIES); i++) {	

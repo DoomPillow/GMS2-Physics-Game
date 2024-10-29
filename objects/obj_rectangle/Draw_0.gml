@@ -1,22 +1,26 @@
 /// @description
 
-if color != false {
-	
-	draw_set_color(c_black);
-	draw_line(vertex[0].x, vertex[0].y, vertex[1].x, vertex[1].y);
-	draw_line(vertex[1].x, vertex[1].y, vertex[2].x, vertex[2].y);
-	draw_line(vertex[2].x, vertex[2].y, vertex[3].x, vertex[3].y);
-	draw_line(vertex[3].x, vertex[3].y, vertex[0].x, vertex[0].y);
-	draw_set_color(c_white);
+draw_sprite_ext(spr_tile, 0, position.x, position.y, 1, 1, radtodeg(-angle), color, 1);
 
-	draw_primitive_begin(pr_trianglestrip);
-	draw_vertex_color(vertex[0].x, vertex[0].y, color, 1);
-	draw_vertex_color(vertex[1].x, vertex[1].y, color, 1);
-	draw_vertex_color(vertex[2].x, vertex[2].y, color, 1);
-	draw_vertex_color(vertex[3].x, vertex[3].y, color, 1);
-	draw_vertex_color(vertex[0].x, vertex[0].y, color, 1);
-	draw_primitive_end();
-}
+draw_rectangle(bbox_left - global.world_position.x - position.x, bbox_top - global.world_position.y - position.y, bbox_right - global.world_position.x - position.x, bbox_bottom - global.world_position.y + position.y, true);
+
+//if color != false {
+//	
+//	draw_set_color(c_black);
+//	draw_line(vertex[0].x, vertex[0].y, vertex[1].x, vertex[1].y);
+//	draw_line(vertex[1].x, vertex[1].y, vertex[2].x, vertex[2].y);
+//	draw_line(vertex[2].x, vertex[2].y, vertex[3].x, vertex[3].y);
+//	draw_line(vertex[3].x, vertex[3].y, vertex[0].x, vertex[0].y);
+//	draw_set_color(c_white);
+//
+//	draw_primitive_begin(pr_trianglestrip);
+//	draw_vertex_color(vertex[0].x, vertex[0].y, color, 1);
+//	draw_vertex_color(vertex[1].x, vertex[1].y, color, 1);
+//	draw_vertex_color(vertex[2].x, vertex[2].y, color, 1);
+//	draw_vertex_color(vertex[3].x, vertex[3].y, color, 1);
+//	draw_vertex_color(vertex[0].x, vertex[0].y, color, 1);
+//	draw_primitive_end();
+//}
 
 if controller.show_bboxes { 
 	draw_set_alpha(0.25)
