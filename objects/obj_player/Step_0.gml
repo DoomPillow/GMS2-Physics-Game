@@ -13,7 +13,9 @@ if movy {
 	
 }
 
-velocity.y += 0.35;
+if place_meeting(position.x,position.y, obj_recungus) {
+	velocity.y += 0.5;
+}
 
 angle += angular_velocity;
 angular_velocity *= 0.95;
