@@ -24,7 +24,7 @@ get_bbox = function() {
 	
 	for (var i = 0; i < array_length(components); i++) {
 		// If rectangle, find max position for each vertex
-		if components[i].object_index == obj_rectangle {
+		if components[i].object_index == obj_rectangle || components[i].object_index == obj_recungus {
 			for (var j = 0; j < array_length(components[i].vertex); j++) {
 				if components[i].vertex[j].x < _bbox[0] { _bbox[0] = components[i].vertex[j].x}	
 				if components[i].vertex[j].y < _bbox[1] { _bbox[1] = components[i].vertex[j].y}	

@@ -8,4 +8,4 @@ event_inherited();
 
 draw_sprite(sprite_index, image_index, position.x, position.y)
 
-draw_text(position.x, position.y, place_meeting(position.x,position.y, obj_rectangle))
+//draw_text(position.x, position.y + 32, place_meeting(position.x,position.y, obj_recungus))

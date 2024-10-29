@@ -2,7 +2,9 @@
 
 draw_sprite_ext(spr_tile, 0, position.x, position.y, 1, 1, radtodeg(-angle), color, 1);
 
-draw_rectangle(bbox_left - global.world_position.x - position.x, bbox_top - global.world_position.y - position.y, bbox_right - global.world_position.x - position.x, bbox_bottom - global.world_position.y + position.y, true);
+
+//draw_rectangle(position.x - 16, position.y - 16, position.x + 16, position.y + 16, true);
+//draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
 
 //if color != false {
 //	
