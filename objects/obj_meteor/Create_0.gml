@@ -2,35 +2,22 @@
 
 event_inherited();
 
-components = [
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:0,  yoff:0, vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32,  yoff:32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32,  yoff:0 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32,  yoff:-32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:0,   yoff:32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:0,   yoff:-32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:0 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:-32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
+components = load_object_from_sprite(sprite_index, irandom(5))
+
+_centerx = 0;
+_centery = 0;
+for (var i = 0; i < array_length(components); i++) {
+	_centerx += components[i].xoff;
+	_centery += components[i].yoff;
+}
 	
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:0 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:64, yoff:-32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-64, yoff:32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-64, yoff:0  , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-64, yoff:-32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32 , yoff:64 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:0  , yoff:64 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:64 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:32 , yoff:-64 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:0  , yoff:-64 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-	instance_create_layer(x,y,layer,obj_rectangle, {xoff:-32, yoff:-64 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}),
-
-];
-
+_centerx /= array_length(components);
+_centery /= array_length(components);
+	
+for (var i = 0; i < array_length(components); i++) {
+	components[i].xoff -= _centerx;
+	components[i].yoff -= _centery;
+}
 
 inv_mass = mass == 0 ? 0 : 1 / mass;
 
@@ -56,7 +43,7 @@ reposition = function() {
 	
 }
 
-inertia = 3 * array_length(components) * mass * (power(components[0].width, 2) + power(components[0].length, 2)) * (1/12);
+inertia = 5 * 1 * array_length(components) * mass * (power(components[0].width, 2) + power(components[0].length, 2)) * (1/18);
 inv_inertia = inertia == 0 ? 0 : 1 / inertia;
 
 angular_velocity = 0;

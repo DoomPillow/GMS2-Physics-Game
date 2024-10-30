@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_meteor",
+  "%Name":"obj_meteor_old",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_meteor",
+  "name":"obj_meteor_old",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"100",},
   ],
   "parent":{
     "name":"complex objects",
@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_meteors",
-    "path":"sprites/spr_meteors/spr_meteors.yy",
+    "name":"spr_complex_object",
+    "path":"sprites/spr_complex_object/spr_complex_object.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -1,7 +1,8 @@
 /// @description
 
-draw_sprite_ext(spr_tile, 0, position.x, position.y, 1, 1, radtodeg(-angle), color, 1);
-
+if draw_myself {
+	draw_sprite_ext(sprite_index, 0, position.x, position.y, 1, 1, radtodeg(-angle), collision_layer == 1 ? c_grey : c_white, 1);
+}
 
 //draw_rectangle(position.x - 16, position.y - 16, position.x + 16, position.y + 16, true);
 //draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);

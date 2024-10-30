@@ -2,7 +2,7 @@
 
 event_inherited();
 
-components = [instance_create_layer(x,y,layer,obj_rectangle, {vertex: [new vector(x, y), new vector(x+32, y)], width: 32})];
+components = [instance_create_layer(x,y,layer,obj_rectangle, {draw_myself: false, vertex: [new vector(x, y), new vector(x+32, y)], width: 32})];
 
 inv_mass = mass == 0 ? 0 : 1 / mass;
 

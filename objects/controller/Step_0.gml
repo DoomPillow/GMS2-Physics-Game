@@ -28,16 +28,16 @@ layer_x(back_id, -global.world_position.x * 0.7);
 layer_y(back_id, -global.world_position.y * 0.7);
 
 back_id = layer_get_id("Background_2");
-layer_x(back_id, -global.world_position.x * 0.095);
-layer_y(back_id, -global.world_position.y * 0.095);
+layer_x(back_id, -global.world_position.x * 0.055);
+layer_y(back_id, -global.world_position.y * 0.055);
 
 back_id = layer_get_id("Background_4");
 layer_x(back_id, -global.world_position.x * 0.2);
 layer_y(back_id, -global.world_position.y * 0.2);
 
 back_id = layer_get_id("Background_3");
-layer_x(back_id, -global.world_position.x * 0.045);
-layer_y(back_id, -global.world_position.y * 0.045);
+layer_x(back_id, -global.world_position.x * 0.025);
+layer_y(back_id, -global.world_position.y * 0.025);
 
 /// Physics stuff
 for (var i = 0; i < array_length(BODIES); i++) {	
