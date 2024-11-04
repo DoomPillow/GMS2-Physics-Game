@@ -6,11 +6,10 @@ components = [instance_create_layer(x,y,layer,obj_rectangle, {draw_myself: false
 
 inv_mass = mass == 0 ? 0 : 1 / mass;
 
+onfloor = false;
+coyote = 0;
+
 reposition = function() {
-	
-	if keyboard_check_pressed(vk_space) {
-		velocity.y -= 8;	
-	}
 	
 	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
 	position = vec_subtract(local_position, global.world_position);

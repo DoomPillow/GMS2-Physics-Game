@@ -9,7 +9,7 @@
   "managed":true,
   "name":"obj_ship",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"150",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
   ],
   "parent":{
     "name":"complex objects",
@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_complex_object",
-    "path":"sprites/spr_complex_object/spr_complex_object.yy",
+    "name":"spr_space_station",
+    "path":"sprites/spr_space_station/spr_space_station.yy",
   },
   "spriteMaskId":null,
   "visible":true,

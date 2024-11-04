@@ -44,23 +44,23 @@ function load_object_from_sprite(_spr,_submg)
 					//}
 					switch (_col) {
 						case 16777215:
-							array_push(components, instance_create_layer(x,y,layer,obj_recungus, {sprite_index: spr_tile, collision_layer: 0, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
-							mass += 10;															  
-						break;																	  
-						case 7368816:															  
-							array_push(components, instance_create_layer(x,y,layer,obj_recungus, {sprite_index: spr_tile, collision_layer: 1, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
-							mass += 5;															
-						break;																	
-						case #00FFFF:															
-							array_push(components, instance_create_layer(x,y,layer,obj_recungus, {sprite_index: spr_glass, collision_layer: 0, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
-							mass += 10;															 
+							array_push(components, instance_create_layer(x,y,layer, par_fronttile, {sprite_index: spr_tile,   xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
+							mass += 10;															  						   
+						break;																	  						   
+						case 7368816:															  						   
+							array_push(components, instance_create_layer(x,y,layer, par_backtile, {sprite_index: spr_tile,   xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
+							mass += 5;																					   
+						break;																							   
+						case #00FFFF:																					   
+							array_push(components, instance_create_layer(x,y,layer, par_fronttile, {sprite_index: spr_glass,  xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
+							mass += 10;															 						   
 						break;																	 
 						case #0000FF:															 
-							array_push(components, instance_create_layer(x,y,layer,obj_recungus, {sprite_index: spr_glass, collision_layer: 1, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
+							array_push(components, instance_create_layer(x,y,layer, par_backtile, {sprite_index: spr_glass,  xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
 							mass += 5;
 						break;
 						case #EE1C24:															
-							array_push(components, instance_create_layer(x,y,layer,obj_recungus, {sprite_index: spr_meteor, collision_layer: 0, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
+							array_push(components, instance_create_layer(x,y,layer, par_fronttile, {sprite_index: spr_meteor, xoff: _x * 32, yoff: -_y * 32 , vertex: [new vector(x, y), new vector(x+32, y)], width: 32}));
 							mass += 16;															 
 						break;		
 					}

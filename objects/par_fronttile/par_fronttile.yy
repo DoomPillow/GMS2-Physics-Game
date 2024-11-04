@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_recungus",
+  "%Name":"par_fronttile",
   "eventList":[],
   "managed":true,
-  "name":"obj_recungus",
+  "name":"par_fronttile",
   "overriddenProperties":[],
   "parent":{
     "name":"components",
     "path":"folders/Objects/components.yy",
   },
   "parentObjectId":{
-    "name":"obj_rectangle",
-    "path":"objects/obj_rectangle/obj_rectangle.yy",
+    "name":"par_tile",
+    "path":"objects/par_tile/par_tile.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
