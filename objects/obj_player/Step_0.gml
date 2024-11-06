@@ -8,7 +8,7 @@ if movy {
 	var _y_input = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 	var _a_input = keyboard_check(ord("E")) - keyboard_check(ord("Q"));
 	
-	accel = new vector(_x_input, _y_input);
+	accel = new vector(lengthdir_x(_x_input, radtodeg(-angle)) + lengthdir_x(-_y_input, 90 + radtodeg(-angle)), lengthdir_y(_x_input, radtodeg(-angle)) + lengthdir_y(-_y_input, 90 + radtodeg(-angle)));
 	angular_velocity += _a_input * 0.005;
 	
 	if _x_input != 0 {
@@ -36,6 +36,9 @@ if onwall {
 if keyboard_check_pressed(vk_space) && coyote > 0 {
 	velocity.y = -10;
 	coyote = 0;
+} else if keyboard_check(vk_space) && !onwall {
+	velocity.x += lengthdir_x(1, radtodeg(-angle) + 90);	
+	velocity.y += lengthdir_y(1, radtodeg(-angle) + 90);	
 }
 
 angle += angular_velocity;

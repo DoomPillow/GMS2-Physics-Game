@@ -10,11 +10,11 @@ camera_set_view_size(view, (view_width*zoom), (view_height*zoom));
 
 if instance_exists(follow) {
 	
-	if relative_angle {
-		camera_set_view_angle(view, radtodeg(follow.components[0].angle));
-	} else {
-		camera_set_view_angle(view, 0);	
-	}
+	//if relative_angle {
+		camera_set_view_angle(view, radtodeg(follow.angle));
+	//} else {
+	//	camera_set_view_angle(view, 0);	
+	//}
 	
 	camx = -(view_width*zoom)/2
 	camy = -(view_height*zoom)/2
