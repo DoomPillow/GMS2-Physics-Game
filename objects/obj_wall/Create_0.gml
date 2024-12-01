@@ -11,5 +11,6 @@ var endpoint = new vector(x+sprite_width,y+sprite_height);
 components = [instance_create_layer(startpoint.x,startpoint.y,layer,obj_line, {vertex: [startpoint, endpoint]})];
 
 reposition = function() {
-	
+	local_position = vec_sum(local_position, vec_multiply(velocity, 1));
+	position = vec_subtract(local_position, global.world_position);
 }
