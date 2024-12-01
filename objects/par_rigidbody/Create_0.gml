@@ -3,7 +3,8 @@
 array_push(controller.BODIES, id);
 
 components = [];
-position = new vector(x, y);
+local_position = new vector(x, y);
+position = vec_subtract(local_position, global.world_position);
 inv_mass = 0;
 inertia = 0;
 inv_inertia = 0;
@@ -12,6 +13,8 @@ bbox = []
 velocity = new vector(vx, vy);
 accel = new vector(0, 0);
 acceleration = 1;
+
+angle = 0;
 angular_velocity = 0;
 fric = 0.015;
 
@@ -21,7 +24,7 @@ get_bbox = function() {
 	
 	for (var i = 0; i < array_length(components); i++) {
 		// If rectangle, find max position for each vertex
-		if components[i].object_index == obj_rectangle {
+		if components[i].object_index == obj_rectangle || object_is_ancestor(components[i].object_index, obj_rectangle) {
 			for (var j = 0; j < array_length(components[i].vertex); j++) {
 				if components[i].vertex[j].x < _bbox[0] { _bbox[0] = components[i].vertex[j].x}	
 				if components[i].vertex[j].y < _bbox[1] { _bbox[1] = components[i].vertex[j].y}	

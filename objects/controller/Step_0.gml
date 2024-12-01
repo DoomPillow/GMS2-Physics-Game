@@ -8,15 +8,45 @@ global.time += global.delta;
 array_pop(fps_avg);
 array_insert(fps_avg, 0, fps_real);	
 
+
+
+////// vvv TEMP STUFF
+//global.world_position.x += 10 * (keyboard_check(vk_right) - keyboard_check(vk_left))
+//global.world_position.y += 10 * (keyboard_check(vk_down) - keyboard_check(vk_up))
+//global.world_position = vec_sum(obj_ship.local_position, new vector(-1500, -900));
+////// ^^^ TEMP STUFF
+
+// Make background and particles move in the new coordinate system
+part_system_position(global.particle_system, -global.world_position.x, -global.world_position.y);
+
+var back_id = layer_get_id("Background_0");
+layer_x(back_id, -global.world_position.x * 0.9);
+layer_y(back_id, -global.world_position.y * 0.9);
+
+back_id = layer_get_id("Background_1");
+layer_x(back_id, -global.world_position.x * 0.7);
+layer_y(back_id, -global.world_position.y * 0.7);
+
+back_id = layer_get_id("Background_2");
+layer_x(back_id, -global.world_position.x * 0.055);
+layer_y(back_id, -global.world_position.y * 0.055);
+
+back_id = layer_get_id("Background_4");
+layer_x(back_id, -global.world_position.x * 0.2);
+layer_y(back_id, -global.world_position.y * 0.2);
+
+back_id = layer_get_id("Background_3");
+layer_x(back_id, -global.world_position.x * 0.025);
+layer_y(back_id, -global.world_position.y * 0.025);
+
 /// Physics stuff
 for (var i = 0; i < array_length(BODIES); i++) {	
 	with BODIES[i] {
 		
 		reposition();
-		
+
 	}
 }
-
 
 overlapping_bboxes = 0; // Debug only
 // Loop through each physics object...
@@ -40,6 +70,11 @@ for (var i = 0; i < array_length(BODIES); i++) {
 			// Loop through all of the components of the second object for every component in the first...
 			for (var o1_comp = 0; o1_comp < array_length(other.BODIES[i].components); o1_comp++) {
 				for (var o2_comp = 0; o2_comp < array_length(other.BODIES[body_pair].components); o2_comp++) {
+					
+					// Continue if not on the same collision layer
+					if other.BODIES[i].components[o1_comp].collision_layer != other.BODIES[body_pair].components[o2_comp].collision_layer {
+						continue;	
+					}
 					
 					// Perform breadth-distance broad phase
 					if point_distance(other.BODIES[i].components[o1_comp].position.x, other.BODIES[i].components[o1_comp].position.y, other.BODIES[body_pair].components[o2_comp].position.x, other.BODIES[body_pair].components[o2_comp].position.y) > (other.BODIES[i].components[o1_comp].breadth + other.BODIES[body_pair].components[o2_comp].breadth) {
@@ -68,11 +103,13 @@ for (var i = 0; i < array_length(BODIES); i++) {
 	}
 }
 
+
 // Resolve each collision
 for (var i = 0; i < array_length(COLLISIONS); i++) {
 	COLLISIONS[i].resolve_penetration();
 	COLLISIONS[i].resolve_collision();
 }
+
 
 
 // reset array at the end of every frame

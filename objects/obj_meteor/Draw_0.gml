@@ -2,9 +2,9 @@
 
 event_inherited();
 
-draw_set_color(c_yellow);
-draw_text(components[0].position.x, components[0].position.y, $"{mass}kg");
-draw_set_color(c_white);
+//draw_set_color(c_yellow);
+//draw_text(position.x, position.y, $"{mass}kg");
+//draw_set_color(c_white);
 
 //if !movy {
 //	var _dir = point_direction(components[0].position.x, components[0].position.y, mouse_x, mouse_y);
