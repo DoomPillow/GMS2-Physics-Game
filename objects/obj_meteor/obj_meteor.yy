@@ -9,7 +9,7 @@
   "managed":true,
   "name":"obj_meteor",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"100",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"par_rigidbody","path":"objects/par_rigidbody/par_rigidbody.yy",},"propertyId":{"name":"mass","path":"objects/par_rigidbody/par_rigidbody.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
   ],
   "parent":{
     "name":"complex objects",
@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_complex_object",
-    "path":"sprites/spr_complex_object/spr_complex_object.yy",
+    "name":"spr_meteors",
+    "path":"sprites/spr_meteors/spr_meteors.yy",
   },
   "spriteMaskId":null,
   "visible":true,

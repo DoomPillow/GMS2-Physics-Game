@@ -2,7 +2,7 @@
 
 view_width = display_get_width()/5;
 view_height = display_get_height()/5;
-zoom = 4;
+zoom = 2;
 
 window_scale = 3;
 crunchy = 1;
@@ -16,4 +16,4 @@ camy = 0;
 
 relative_angle = false;
 
-follow = obj_ship;
+follow = obj_player;
